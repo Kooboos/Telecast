@@ -1,12 +1,19 @@
-var webdriver = require('selenium-webdriver'), By  = webdriver.By, until = webdriver.until;
-var chromeCapabilities = webdriver.Capabilities.chrome();
-var chromeOptions = {
-    'args': ['']
-}
-var driver = new webdriver.Builder().forBrowser('chrome').build();
-driver.get('https://web.telegram.org/#/login')
+// var webdriver = require('selenium-webdriver'), By  = webdriver.By, until = webdriver.until;
+// var chromeCapabilities = webdriver.Capabilities.chrome();
+// var o = new chrome.Options();
+// o.addArguments("Users/jasoncaserta/Library/Application Support/Google/Chrome/Default");
+// var driver = new webdriver.Builder().forBrowser('chrome').build();
+// driver.get('https://web.telegram.org/#/login')
 
 
+var webdriver = require('selenium-webdriver');
+var chrome = require('selenium-webdriver/chrome');
+var o = new chrome.Options();
+o.addArguments("user-data-dir=/Users/jasoncaserta/Library/Application\ Support/Google/Chrome/Default");
+var driver = new webdriver.Builder().withCapabilities(webdriver.Capabilities.chrome()).setChromeOptions(o).build(); 
+
+driver.get('https://web.telegram.org/#/login');
+//	/Users/jasoncaserta/Library/Application Support/Google/Chrome/Default
 
 // var driver = new webdriver.Builder().forBrowser('chrome').build();
 
