@@ -7,12 +7,17 @@
 
 
 var webdriver = require('selenium-webdriver');
+const username = require('username');
 var chrome = require('selenium-webdriver/chrome');
-var o = new chrome.Options();
-o.addArguments("user-data-dir=/Users/jasoncaserta/Library/Application\ Support/Google/Chrome/Default");
-var driver = new webdriver.Builder().withCapabilities(webdriver.Capabilities.chrome()).setChromeOptions(o).build(); 
 
-driver.get('https://web.telegram.org/#/login');
+username().then(username => {
+    var o = new chrome.Options();
+    o.addArguments("user-data-dir=/Users/"+ username +"/Library/Application\ Support/Google/Chrome/Default");
+    var driver = new webdriver.Builder().withCapabilities(webdriver.Capabilities.chrome()).setChromeOptions(o).build(); 
+    driver.get('https://web.telegram.org/#/login');
+
+});
+
 //	/Users/jasoncaserta/Library/Application Support/Google/Chrome/Default
 
 // var driver = new webdriver.Builder().forBrowser('chrome').build();
@@ -21,7 +26,7 @@ driver.get('https://web.telegram.org/#/login');
 
 // //Element which prompts to select groupchat to start chatting in.
 
-// var query = driver.wait(until.elementLocated(By.css("body > div.page_wrap > div.im_page_wrap.clearfix.im_page_peer_not_selected > div > div.im_history_col_wrap.noselect > div.im_history_not_selected_wrap > div")));
+//var query = driver.wait(until.elementLocated(By.css("body > div.page_wrap > div.im_page_wrap.clearfix.im_page_peer_not_selected > div > div.im_history_col_wrap.noselect > div.im_history_not_selected_wrap > div")));
 
 // query.then(()=> {
 //     console.log('found Element!');
