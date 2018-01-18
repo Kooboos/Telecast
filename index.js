@@ -51,6 +51,7 @@ username().then(username => {
             
             
             
+            
             // for(let a=0; a< chats.length; a++){
             //     chats[a].findElements(By.css('*')).then(newElements=>{
             //         // console.log('this is one new element:', newElements);
